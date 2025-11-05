@@ -118,20 +118,6 @@ impl BlockchainAgent {
                 })).expect("Failed to deserilize ToolInputSchema"),
             },
             Tool {
-                name: "get_token_price".to_string(),
-                description: "Get the current price of a token".to_string(),
-                input_schema: from_value(json!({
-                    "type": "object",
-                    "properties": {
-                        "token": {
-                            "type": "string",
-                            "description": "The token address or symbol"
-                        }
-                    },
-                    "required": ["token"]
-                })).expect("Failed to deserilize ToolInputSchema"),
-            },
-            Tool {
                 name: "swap_tokens".to_string(),
                 description: "Swap tokens using Uniswap".to_string(),
                 input_schema: from_value(json!({
