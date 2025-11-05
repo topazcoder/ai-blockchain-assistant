@@ -14,7 +14,6 @@ impl RIGClient {
     pub fn new(mcp_server: &str, api_key: &str) -> Result<Self> {
         let mcp_client = MCPClient::new(mcp_server)?;
         let agent = BlockchainAgent::new(api_key, mcp_client)?;
-        let repl = REPL::new();
 
         Ok(Self { agent, repl })
     }
