@@ -132,6 +132,32 @@ impl BlockchainAgent {
                 })).expect("Failed to deserilize ToolInputSchema"),
             },
             Tool {
+                name: "swap_tokens".to_string(),
+                description: "Swap tokens using Uniswap".to_string(),
+                input_schema: from_value(json!({
+                    "type": "object",
+                    "properties": {
+                        "from_token": {
+                            "type": "string",
+                            "description": "The address or symbol of the token to swap from"
+                        },
+                        "to_token": {
+                            "type": "string",
+                            "description": "The address or symbol of the token to swap to"
+                        },
+                        "amount": {
+                            "type": "string",
+                            "description": "The amount to swap"
+                        },
+                        "recipient": {
+                            "type": "string",
+                            "description": "The recipient address or named account"
+                        }
+                    },
+                    "required": ["from_token", "to_token", "amount", "recipient"]
+                })).expect("Failed to deserilize ToolInputSchema"),
+            },
+            Tool {
                 name: "search_docs".to_string(),
                 description: "Search the documentation for information about blockchain protocols and smart contracts".to_string(),
                 input_schema: from_value(json!({
