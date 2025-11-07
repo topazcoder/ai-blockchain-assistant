@@ -195,11 +195,6 @@ impl BlockchainAgent {
             },
         ];
 
-        let mut params = MessageCreateBuilder::new("claude-sonnet-4-20250514", 2000)
-            .tools(tools)
-            .build();
-        params.messages = self.conversation_history.clone();
-
         // Create message with tools
         let response = self.client.messages().create(params).await?;
 
